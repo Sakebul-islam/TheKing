@@ -1,0 +1,23 @@
+.download-file {
+  color: #2cc374;
+  @extend %text-uppercase;
+  padding: 14px 30px;
+
+  &:hover {
+    color: #2cc374;
+  }
+  &:focus {
+    color: #2cc374;
+  }
+
+  i {
+    font-size: 20px;
+
+    &:nth-child(1) {
+      margin-right: 17px;
+    }
+    &:nth-child(2) {
+      margin-left: 25px;
+    }
+  }
+}

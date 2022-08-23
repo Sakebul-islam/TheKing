@@ -1,0 +1,219 @@
+.service-single {
+  .side-list {
+    box-shadow: 0px 0px 10px 0px rgba(136, 136, 136, 0.1);
+  }
+
+  .service-box {
+    margin-bottom: 30px;
+
+    @include breakpoint(md) {
+      margin-bottom: 55px;
+    }
+    &__list-ul {
+      li {
+        border-bottom: 1px solid #f4faff;
+        @include transition($transition);
+        &:hover {
+          background-color: $fa-color;
+          a {
+            color: $theme-color;
+          }
+        }
+        a {
+          padding: 24px 40px;
+          @extend%text-regular,%text-capitalize,%d-block;
+          color: $title-color;
+          @include transition($transition);
+
+          span {
+            @extend %text-uppercase;
+          }
+        }
+      }
+    }
+  }
+
+  &__left-item {
+    .title {
+      border-bottom: 1px solid #f4faff;
+      padding: 20px 40px 25px 40px;
+      h6 {
+        font-size: 20px;
+        @extend %text-bold, %text-capitalize;
+        color: $title-color;
+      }
+    }
+    .about-company {
+      margin-bottom: 30px;
+      &__thumb {
+        margin-bottom: 30px;
+      }
+      &__body {
+        padding: 30px;
+        .download-file {
+          @extend %d-block, %text-center;
+
+          &:nth-of-type(1) {
+            margin-bottom: 10px;
+
+            @include breakpoint(md) {
+              margin-right: 2.5px;
+            }
+            @include breakpoint(lg) {
+              margin-right: 0;
+            }
+          }
+
+          &:nth-of-type(2) {
+            color: #ff6866;
+            &:hover {
+              color: #ff6866;
+            }
+
+            @include breakpoint(md) {
+              margin-left: 2.5px;
+            }
+            @include breakpoint(lg) {
+              margin-left: 0;
+            }
+          }
+        }
+      }
+    }
+    .contact-infor {
+      margin-bottom: 30px;
+      &__list-ul {
+        li {
+          border-bottom: 1px solid #f4faff;
+          padding: 25px 30px;
+        }
+        &__content {
+          margin-left: 15px;
+          h6 {
+            @extend %text-bold, %text-capitalize;
+            color: $project-color;
+            margin-bottom: 5px;
+          }
+          a {
+            font-size: 16px;
+            @extend %text-regular, %text-capitalize;
+            color: $pra-color;
+            margin: 0;
+
+            &:hover {
+              color: $pra-color;
+            }
+            &:focus {
+              color: $pra-color;
+            }
+          }
+        }
+      }
+    }
+    .callback {
+      &__form {
+        padding: 30px;
+
+        form {
+          & > * {
+            border: 1px solid#f4faff;
+            padding: 10px 20px;
+            margin-bottom: 15px;
+
+            &:nth-last-child(2) {
+              resize: none;
+            }
+            &:nth-last-child(1) {
+              border: none;
+              padding: 0;
+            }
+          }
+        }
+      }
+    }
+  }
+  &__right-item {
+    .post-thumb {
+      margin-bottom: 40px;
+      text-align: center;
+
+      &.main {
+        margin-bottom: 40px;
+      }
+      @include breakpoint(sm) {
+        text-align: initial;
+      }
+      @include breakpoint(md) {
+        margin-bottom: 0;
+      }
+    }
+    h6 {
+      font-size: 24px;
+      @extend %text-bold, %text-capitalize;
+      color: $title-color;
+      margin-bottom: 15px;
+    }
+    .team-lead {
+      padding: 20px;
+      @include transition($transition);
+
+      &:hover {
+        @include add-prefix(transform, translateY(-10px));
+      }
+
+      &__content {
+        margin-left: 20px;
+        h6 {
+          margin-bottom: 0;
+          a {
+            font-size: 20px;
+            @extend %text-bold, %text-capitalize;
+            color: $black-color;
+          }
+        }
+        span {
+          display: inline-block;
+        }
+      }
+    }
+    p {
+      margin-bottom: 40px;
+    }
+  }
+
+  &__item {
+    @include transition($transition);
+    margin-bottom: 30px;
+    &:hover {
+      @include add-prefix(transform, translateY(-5px));
+    }
+  }
+  &__inner {
+    .service-content {
+      padding: 32px 30px;
+      & a {
+        color: $title-color;
+        @extend %text-regular, %text-uppercase;
+
+        &:hover {
+          color: $theme-color;
+        }
+      }
+      h6 {
+        margin-bottom: 23px;
+
+        a {
+          font-size: 18px;
+          @extend %text-bold, %text-capitalize;
+          color: $title-color;
+        }
+        &:hover a {
+          color: $theme-color;
+        }
+      }
+      p {
+        margin-bottom: 0;
+      }
+    }
+  }
+}

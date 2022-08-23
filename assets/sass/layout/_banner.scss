@@ -1,0 +1,160 @@
+.banner {
+  background-image: $banner-color;
+  overflow: hidden;
+
+  &__slider {
+    // & [data-slick-index="1"] {
+    //   @include background-image(home/banner, 1, png, transparent, no-repeat);
+    // }
+    // & [data-slick-index="1"] {
+    //   @include background-image(home/banner, 2, png, transparent, no-repeat);
+    // }
+
+    &.slick-slider {
+      user-select: auto;
+    }
+
+    .slick-dots {
+      bottom: 25px;
+
+      & li {
+        margin: 0 !important;
+
+        button:before {
+          font-size: 10px;
+          color: $title-color;
+          opacity: 1;
+        }
+      }
+
+      & li.slick-active button:before {
+        color: $theme-color;
+        opacity: 1;
+      }
+    }
+  }
+
+  &__slide {
+    overflow: hidden;
+  }
+
+  &__item {
+    width: 100%;
+  }
+
+  &__wrapper {
+    padding-top: 40px;
+    padding-bottom: 40px;
+
+    @include breakpoint(sm) {
+      padding-top: 70px;
+      padding-bottom: 70px;
+    }
+
+    @include breakpoint(md) {
+      padding-top: 68px;
+      padding-bottom: 88px;
+    }
+
+    @include breakpoint(lg) {
+      padding-top: 108px;
+      padding-bottom: 128px;
+    }
+
+    @include breakpoint(xl) {
+      padding-top: 148px;
+      padding-bottom: 168px;
+    }
+  }
+
+  &__content {
+    margin-bottom: 80px;
+
+    @include breakpoint(md) {
+      margin-bottom: 0;
+    }
+
+    h5 {
+      font-size: 18px;
+      @extend %text-thin,
+      %text-uppercase;
+      color: $title-color;
+      line-height: 2.5;
+
+      @include breakpoint(sm) {
+        font-size: 19px;
+      }
+
+      @include breakpoint(md) {
+        font-size: 20px;
+      }
+
+      @include breakpoint(lg) {
+        font-size: 22px;
+      }
+
+      @include breakpoint(xl) {
+        font-size: 24px;
+      }
+    }
+
+    h2 {
+      @extend %text-capitalize;
+      margin-bottom: 17px;
+      font-size: 35px;
+      color: $title-color;
+      line-height: 1.2;
+
+      @include breakpoint(sm) {
+        font-size: 38.75px;
+      }
+
+      @include breakpoint(md) {
+        font-size: 41.75px;
+      }
+
+      @include breakpoint(lg) {
+        font-size: 44.75px;
+      }
+
+      @include breakpoint(xl) {
+        font-size: 50px;
+      }
+
+      span {
+        color: $theme-color;
+      }
+    }
+
+    p {
+      color: $pra-color;
+      line-height: 1.5;
+    }
+
+    .comon-btn {
+      margin-top: 46px;
+    }
+  }
+
+  &__thumb {
+    margin-bottom: 30px;
+
+    @include breakpoint(md) {
+      margin-bottom: 0px;
+    }
+
+    @include breakpoint(lg) {
+      margin-right: -280px;
+      margin-left: 27px;
+      margin-top: -90px;
+    }
+
+    &.normal {
+      @include breakpoint(lg) {
+        margin-left: -280px;
+        margin-right: 27px;
+        margin-top: -90px;
+      }
+    }
+  }
+}

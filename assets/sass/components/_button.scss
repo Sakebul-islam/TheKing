@@ -1,0 +1,105 @@
+.comon-btn {
+  @extend%p-rel;
+  background-color: $theme-color;
+  color: $white-color;
+  @extend%text-capitalize,%text-bold,%text-bold;
+  @include add-prefix(border-radius, 4px);
+  @include transition($transitions);
+  width: auto;
+  font-size: 14px;
+  outline: none;
+  &:focus {
+    color: $white-color;
+  }
+  span {
+    z-index: 4;
+    @extend %p-rel, %text-bold, %d-block;
+    padding: 0 33px;
+    line-height: 3.5;
+    font-size: $fs-16;
+
+    @include breakpoint(sm) {
+      padding: 0 35px;
+    }
+    @include breakpoint(md) {
+      padding: 0 37px;
+    }
+    @include breakpoint(lg) {
+      padding: 0 39px;
+    }
+    @include breakpoint(xl) {
+      padding: 0 41px;
+    }
+  }
+  &:hover {
+    background-color: $alter-title-color;
+    color: $white-color;
+
+    &::after {
+      bottom: 0;
+    }
+  }
+}
+
+// .comon-btn--single:hover {
+//   background-color: transparent !important;
+// }
+
+.comon-btn--queation {
+  border: none;
+  margin-top: 25px;
+  @include transition($transition);
+
+  span {
+    padding: 0 39px !important;
+    // letter-spacing: -1.2px;
+  }
+}
+.comon-btn--blog {
+  @extend %d-block, %text-bold;
+  max-width: 200px;
+  margin: 28px auto 0;
+  font-size: $fs-14;
+  text-align: center;
+  letter-spacing: -1px;
+}
+.comon-btn--footer {
+  background-color: $white-color;
+  color: $theme-color;
+  letter-spacing: -1px;
+  @include transition($transition);
+
+  span {
+    padding: 0 26px;
+    i {
+      margin-right: 15px;
+      color: $theme-color;
+      @include transition($transition);
+    }
+  }
+  &:hover {
+    background-color: $theme-color;
+    color: $white-color;
+
+    i {
+      color: $white-color;
+    }
+  }
+}
+
+.remove-cart {
+  @extend %text-capitalize, %text-medium;
+  padding-right: 10px;
+  padding-left: 10px;
+  font-size: $fs-15;
+  line-height: 2;
+  background-color: $title-color;
+  color: $white-color;
+  @include add-prefix(border-radius, 2px);
+  @include add-prefix(transition, all 0.3s ease);
+
+  &:hover {
+    background-color: $theme-color;
+    color: $white-color;
+  }
+}

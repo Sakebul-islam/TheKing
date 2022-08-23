@@ -1,0 +1,500 @@
+.blog-single {
+  &__inner {
+    box-shadow: 0px 0px 10px 0px rgba(136, 136, 136, 0.1);
+  }
+
+  &__content {
+    blockquote {
+      background-color: $theme-color;
+      color: $white-color;
+      margin: 0 0 20px;
+      padding: 30px;
+
+      @include breakpoint(md) {
+        position: relative;
+        margin: 0 0 20px;
+        padding: 30px 50px 30px 103px;
+
+        &::before {
+          position: absolute;
+          content: "";
+          @include background-image(blog-single,
+            2,
+            svg,
+            transparent,
+            no-repeat);
+          font-size: 10em;
+          left: 35px;
+          top: 28px;
+          width: 55px;
+          height: 43px;
+        }
+      }
+
+      p {
+        color: $white-color;
+      }
+
+      cite {
+        @extend %d-block;
+        text-align: right;
+
+        a {
+          color: $white-color;
+
+          &:hover,
+          :focus,
+          :active {
+            color: $white-color;
+          }
+        }
+      }
+    }
+
+    &>p {
+      margin-bottom: 28px;
+    }
+
+    .tags-section {
+      @extend %flex,
+      %justify-between,
+      %ai-center;
+      border-top: 1px solid $border-color-2;
+      margin: 0 -30px;
+      padding: 20px 30px 0;
+
+      @include breakpoint(lg) {
+        flex-wrap: nowrap;
+      }
+
+      .tags-ul {
+        @extend %flex;
+        width: calc(100%);
+        justify-content: center;
+        margin-bottom: 30px;
+
+        @include breakpoint(lg) {
+          justify-content: left;
+          width: calc(100% / 0.3);
+          margin-bottom: 0;
+        }
+
+        li {
+          margin: 5px;
+
+          &:first-child {
+            margin-left: 0;
+          }
+
+          a {
+            border: 1px solid $border-color-2;
+            color: $tag-color;
+            @extend %text-regular,
+            %text-capitalize;
+            padding: 12px 15px;
+            @include add-prefix(border-radius, 3px);
+
+            &:hover {
+              background-color: $theme-color;
+              color: $white-color;
+            }
+          }
+        }
+      }
+    }
+
+    .social-media {
+      @extend %flex;
+      width: calc(100%);
+      justify-content: center;
+      gap: 10px;
+
+      @include breakpoint(lg) {
+        justify-content: right;
+        width: calc(100% / 0.7);
+      }
+
+      a {
+        @extend %d-inline-block;
+        width: 40px;
+        height: 40px;
+        line-height: 40px;
+        font-size: 16px;
+        color: $white-color;
+        text-align: center;
+        @include add-prefix(border-radius, 3px);
+
+        &:hover {
+          @include add-prefix(border-radius, 50%);
+        }
+      }
+
+      .facebook {
+        background-color: $facebook;
+      }
+
+      .dribbble {
+        background-color: $dribbble;
+      }
+
+      .twitter {
+        background-color: $twitter;
+      }
+
+      .google-plus {
+        background-color: $google-plus;
+      }
+    }
+  }
+
+  &__thumb {
+    &.body {
+      margin-bottom: 30px;
+      @extend %p-rel;
+    }
+
+    a {
+      @extend%p-abs,
+      %text-center;
+      top: 50%;
+      left: 50%;
+      width: 100px;
+      height: 100px;
+      line-height: 100px;
+      @include add-prefix(transform, translate(-50%, -50%));
+      @include add-prefix(border-radius, 50%);
+      background-color: rgba(255, 255, 255, 0.5);
+
+      i {
+        width: 80px;
+        height: 80px;
+        line-height: 80px;
+        @include add-prefix(border-radius, 50%);
+        @extend %text-bold,
+        %d-inline-block,
+        %text-center;
+        color: $theme-color;
+        background-color: $white-color;
+        font-size: 22px;
+      }
+    }
+  }
+
+  &__navigations {
+    margin: 33px 0;
+    padding: 0 31px;
+
+    @include breakpoint(md) {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    &__left {
+      width: 100%;
+      @extend %text-left;
+
+      @include breakpoint(md) {
+        width: calc(100% / 2);
+      }
+
+      .previous {
+        color: $contact-color;
+        font-size: $fs-14;
+        @extend %text-bold,
+        %text-uppercase;
+        margin-bottom: 14px;
+
+        &:hover {
+          color: $theme-color;
+        }
+      }
+
+      .title {
+        color: $pra-color;
+        font-size: $fs-16;
+
+        &:hover {
+          color: $theme-color;
+        }
+      }
+    }
+
+    &__right {
+      width: 100%;
+      @extend %text-right;
+      margin-top: 30px;
+
+      @include breakpoint(md) {
+        width: calc(100% / 2);
+        margin-top: 0;
+      }
+
+      .next {
+        color: $contact-color;
+        font-size: $fs-14;
+        @extend %text-bold,
+        %text-uppercase;
+        margin-bottom: 14px;
+
+        &:hover {
+          color: $theme-color;
+        }
+      }
+
+      .title {
+        color: $pra-color;
+        font-size: $fs-16;
+
+        &:hover {
+          color: $theme-color;
+        }
+      }
+    }
+  }
+
+  &__authors {
+    box-shadow: 0px 0px 10px 0px rgba(136, 136, 136, 0.1);
+    margin-bottom: 30px;
+    padding: 15px 20px;
+    @extend %flex,
+    %justify-center,
+    %text-center;
+
+    @include breakpoint(sm) {
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: nowrap;
+      text-align: left;
+      padding: 25px 30px;
+    }
+
+    &__thumb {
+      width: 150px;
+      height: auto;
+      margin-bottom: 30px;
+
+      @include breakpoint(md) {
+        margin-bottom: 0;
+      }
+    }
+
+    &__content {
+      width: 100%;
+
+      @include breakpoint(sm) {
+        width: calc(100% - 150px);
+        padding-left: 25px;
+      }
+
+      h6 {
+        font-size: $fs-18;
+        @extend %text-bold,
+        %text-capitalize;
+        margin-bottom: 14px;
+
+        a {
+          color: $contact-color;
+
+          &:hover {
+            color: $theme-color;
+          }
+
+          &:focus {
+            color: $theme-color;
+          }
+        }
+      }
+
+      .social-media {
+        a {
+          padding: 11px 11.5px;
+
+          &:first-child {
+            padding-left: 0px;
+          }
+
+          &.twitter {
+            color: $twitter;
+          }
+
+          &.instagram {
+            color: $instagram;
+          }
+
+          &.dribble {
+            color: $dribble;
+          }
+
+          &.vimeo {
+            color: $vimeo;
+          }
+
+          &.behance {
+            color: $behance;
+          }
+        }
+      }
+    }
+  }
+
+  &__comment {
+    box-shadow: 0px 0px 10px 0px rgba(136, 136, 136, 0.1);
+    margin-bottom: 30px;
+
+    .title {
+      padding: 28px 27px 23px;
+      border-bottom: 1px solid $border-color-4;
+
+      h6 {
+        font-size: $fs-18;
+        @extend %text-bold;
+        color: $contact-color;
+      }
+    }
+  }
+
+  &__comment-ul {
+    // padding: 30px;
+  }
+
+  .comment-item {
+    @extend %flex,
+    %ai-center,
+    %justify-between;
+    padding: 30px;
+    border-bottom: 1px solid $border-color-4;
+
+    @include breakpoint(sm) {
+      // display: flex;
+      // align-items: center;
+      // justify-content: space-between;
+    }
+
+    &__thumb {
+      width: 80px;
+      height: 80px;
+      margin-bottom: 20px;
+
+      @include breakpoint(sm) {
+        margin-bottom: 0px;
+      }
+    }
+
+    &__content {
+      width: 100%;
+
+      @include breakpoint(sm) {
+        width: calc(100% - 80px);
+        padding-left: 20px;
+      }
+    }
+
+    &__title {
+      @extend %flex,
+      %ai-center,
+      %justify-between;
+      margin-bottom: 20px;
+
+      @include breakpoint(sm) {
+        margin-bottom: 0px;
+      }
+
+      &-meta {
+        margin-bottom: 14px;
+
+        h6 {
+          font-size: $fs-18;
+          @extend %text-bold,
+          %text-capitalize;
+          margin-bottom: 3px;
+
+          a {
+            color: $contact-color;
+
+            &:focus {
+              color: $theme-color;
+            }
+
+            &:hover {
+              color: $theme-color;
+            }
+          }
+        }
+
+        span {
+          text-transform: initial;
+        }
+      }
+
+      &-reply {
+        font-size: $fs-14;
+        @extend %text-bold,
+        %text-capitalize;
+        color: $contact-color;
+        cursor: pointer;
+        @include transition($transition);
+
+        &:hover {
+          color: $theme-color;
+        }
+      }
+    }
+
+    &__sub {
+      padding-left: 60px;
+    }
+  }
+
+  &__comment-respond {
+    box-shadow: 0px 0px 10px 0px rgba(136, 136, 136, 0.1);
+    margin-bottom: 30px;
+
+    .title {
+      padding: 28px 27px 23px;
+      border-bottom: 1px solid $border-color-4;
+
+      h6 {
+        font-size: $fs-18;
+        @extend %text-bold;
+        color: $contact-color;
+      }
+    }
+  }
+
+  &__add-comment {
+    padding: 30px;
+
+    .comment-form {
+      @extend %flex,
+      %justify-between,
+      %ai-center;
+
+      input[type="text"] {
+        padding: 16px 18px;
+        border: 1px solid $border-color-5;
+        margin-bottom: 30px;
+        width: 100%;
+        @include add-prefix(border-radius, 0);
+
+        @include breakpoint(sm) {
+          width: calc(100% / 2 - 15px);
+        }
+      }
+
+      input[placeholder="Subject"] {
+        width: 100%;
+      }
+
+      textarea {
+        padding: 16px 18px;
+        border: 1px solid $border-color-5;
+        resize: none;
+        @include add-prefix(border-radius, 0);
+      }
+
+      .comon-btn {
+        margin-top: 30px;
+      }
+    }
+  }
+}

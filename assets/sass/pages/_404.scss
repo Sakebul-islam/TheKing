@@ -1,0 +1,16 @@
+.error {
+  &__thumb {
+    margin-bottom: 42px;
+  }
+  &__content {
+    h3 {
+      font-size: 36px;
+      @extend %text-bold, %text-capitalize;
+      color: $title-color;
+      margin-bottom: 10px;
+    }
+    .comon-btn {
+      margin-top: 27px;
+    }
+  }
+}

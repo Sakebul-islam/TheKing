@@ -1,0 +1,145 @@
+.devlopment {
+  background-color: $white-color;
+
+  &__wrapper {
+    &-inner {
+      margin-top: 30px;
+
+      @include breakpoint(sm) {
+        margin-top: 20px;
+      }
+      @include breakpoint(md) {
+        margin-top: 10px;
+      }
+      @include breakpoint(lg) {
+        margin-top: 0px;
+      }
+    }
+    &-content {
+      &-text {
+        h6 {
+          @extend %text-thin, %text-uppercase;
+          font-size: 16px;
+          color: $theme-color;
+          line-height: 2.4;
+
+          @include breakpoint(sm) {
+            font-size: 17px;
+          }
+          @include breakpoint(md) {
+            font-size: 18px;
+          }
+          @include breakpoint(lg) {
+            font-size: 19px;
+          }
+          @include breakpoint(xl) {
+            font-size: 20px;
+          }
+        }
+        h3 {
+          @extend %text-bold, %text-capitalize;
+          margin-bottom: 29px;
+          font-size: 28px;
+          color: $title-color;
+          line-height: 1.33;
+          @extend %text-2;
+
+          @include breakpoint(sm) {
+            font-size: 30px;
+          }
+          @include breakpoint(md) {
+            font-size: 32px;
+          }
+          @include breakpoint(lg) {
+            font-size: 34px;
+          }
+          @include breakpoint(xl) {
+            font-size: 36px;
+          }
+        }
+        p {
+          text-transform: initial;
+          font-size: $global-font;
+          color: $eash-color;
+          line-height: 1.5;
+        }
+      }
+      &-icon {
+        margin-bottom: 20px;
+
+        @include breakpoint(md) {
+          margin-right: 20px;
+          margin-bottom: 0;
+        }
+
+        &-inner {
+          height: 50px;
+          width: 50px;
+          line-height: 65px;
+          background-color: $theme-color;
+          @extend %text-center;
+          @include add-prefix(border-radius, 50%);
+          i {
+            color: $white-color;
+            font-size: 35px;
+          }
+        }
+      }
+      &-item {
+        max-width: 460px;
+
+        &:nth-child(2) {
+          margin: 44px auto 0;
+
+          @include breakpoint(xl) {
+            margin: 44px 0 0;
+          }
+        }
+        &:nth-child(3) {
+          margin: 38px auto 0;
+          @include breakpoint(xl) {
+            margin: 38px 0 0;
+          }
+        }
+        &:nth-child(4) {
+          margin: 38px auto 0;
+          @include breakpoint(xl) {
+            margin: 38px 0 0;
+          }
+        }
+      }
+      &-inner {
+        @extend %flex, %justify-center, %text-center;
+
+        @include breakpoint(md) {
+          flex-wrap: nowrap;
+          text-align: initial;
+        }
+      }
+
+      &-details {
+        h6 {
+          @extend %text-bold, %text-capitalize;
+          margin-bottom: 8px;
+          font-size: $fs-18;
+          color: $alter-title-color;
+          line-height: 1.33;
+        }
+        p {
+          text-transform: initial;
+          font-size: $global-font;
+          color: $pra-color;
+          line-height: 1.5;
+        }
+      }
+    }
+    &-thumb {
+      &-image {
+        margin-left: 0;
+        @include breakpoint(lg) {
+          margin-left: -55px;
+        }
+      }
+    }
+  }
+}

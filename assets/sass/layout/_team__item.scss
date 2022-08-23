@@ -1,0 +1,88 @@
+.team {
+  &__item {
+    @extend %text-center;
+    border: 1px solid $fo-color;
+    @include transition($transition);
+
+    .thumb {
+      a {
+        img {
+          @include transition($transition);
+        }
+      }
+    }
+    &:hover {
+      border: 1px solid $white-color;
+      box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
+      .thumb {
+        a {
+          img {
+            @include add-prefix(transform, rotateY(-180deg));
+          }
+        }
+      }
+    }
+  }
+  &__thumb {
+    border-bottom: 1px solid $fo-color;
+    padding-bottom: 33px;
+
+    .thumb {
+      margin: 30px auto;
+    }
+    .content {
+      h6 {
+        font-size: 20px;
+        @extend %text-bold, %text-capitalize;
+        line-height: 1.2;
+        margin-bottom: 5px;
+        &:hover {
+          a {
+            color: $theme-color;
+          }
+        }
+
+        a {
+          color: $black-color;
+        }
+      }
+      span {
+        font-size: 16px;
+        text-transform: initial;
+        color: $eash-color;
+        @extend %text-regular;
+        line-height: 1.5;
+      }
+    }
+  }
+  &__content {
+    .social {
+      @extend %flex, %justify-center;
+      padding: 9px 0;
+
+      li {
+        a {
+          padding: 6px;
+          i {
+            font-size: 18px;
+          }
+        }
+        .facebook {
+          color: $facebook;
+        }
+        .google-plus {
+          color: $google-plus;
+        }
+        .dribble {
+          color: $dribble;
+        }
+        .vimeo {
+          color: $vimeo;
+        }
+        .printerest {
+          color: $printerest;
+        }
+      }
+    }
+  }
+}

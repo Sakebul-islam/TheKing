@@ -1,0 +1,93 @@
+.question {
+  @extend %p-rel;
+  background: $fa-color;
+  &::after {
+    @include background-image(home/question, bg, png, transparent, no-repeat);
+    @extend %p-abs;
+  }
+
+  @include breakpoint(lg) {
+    &::after {
+      top: 0;
+      left: -150px;
+      width: 50%;
+      height: 100%;
+      z-index: 1;
+    }
+  }
+
+  &__thumb {
+    @extend %p-rel;
+    z-index: 99;
+    margin-bottom: 30px;
+
+    @include breakpoint(md) {
+      margin-bottom: 0;
+
+      img {
+        margin-left: -77px;
+      }
+    }
+  }
+  &__form {
+    &__options {
+      @extend %p-rel;
+      background-color: $white-color;
+
+      i {
+        @extend %p-abs;
+        top: 0px;
+        right: 0px;
+        width: 60px;
+        height: 60px;
+        line-height: 60px;
+        text-align: center;
+        z-index: 0;
+      }
+    }
+    .plan-list {
+      @extend %p-rel;
+      background-color: transparent;
+      color: $placeholder-color;
+      line-height: 1.6;
+      font-size: $fs-base;
+      padding: 16px;
+      appearance: none;
+      z-index: 1;
+    }
+    select option {
+      color: $project-color !important;
+    }
+    &__fild-marge {
+      @extend %flex, %justify-between;
+      .user-name,
+      .user-email {
+        width: 100%;
+      }
+      @include breakpoint(lg) {
+        .user-name,
+        .user-email {
+          width: 49% !important;
+        }
+      }
+
+      input {
+        background-color: $white-color;
+        margin-top: 17px;
+        padding: 16px;
+      }
+      input::placeholder {
+        color: $placeholder-color;
+        @extend %text-capitalize;
+      }
+    }
+    textarea {
+      @extend %text-capitalize;
+      margin-top: 17px;
+      padding: 16px;
+      background-color: $white-color;
+      height: 100px;
+      min-width: 100%;
+    }
+  }
+}

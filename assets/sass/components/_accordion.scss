@@ -1,0 +1,98 @@
+.accordion {
+  &-item {
+    border-bottom: 10px solid transparent !important;
+    background-color: transparent !important;
+  }
+  &-header {
+    .accordion-button {
+      font-size: 17px;
+      font-weight: 700;
+      padding: 16px 30px !important;
+      @include add-prefix(border-radius, 5px 5px 0 0 !important);
+
+      span {
+        @extend%p-rel;
+        width: 36px;
+        height: 36px;
+        background-color: $theme-color;
+        @include add-prefix(border-radius, 50%);
+        @include add-prefix(transition, transform 0.2s ease-in-out);
+        margin-right: 15px;
+
+        &::before {
+          @extend %p-abs;
+          width: 12px;
+          height: 2px;
+          top: 50%;
+          left: 50%;
+          @include add-prefix(transform, translate(-50%, -50%));
+          background-color: $white-color;
+        }
+
+        &::after {
+          opacity: 0;
+          @extend %p-abs;
+          width: 2px;
+          height: 12px;
+          top: 50%;
+          left: 50%;
+          @include add-prefix(transform, translate(-50%, -50%) rotate(90deg));
+          background-color: $white-color;
+          @include add-prefix(transition, all 0.5s ease);
+        }
+      }
+      &.collapsed {
+        @include add-prefix(border-radius, 5px !important);
+
+        span {
+          &::after {
+            opacity: 1;
+            @include add-prefix(transform, translate(-50%, -50%) rotate(0deg));
+          }
+        }
+      }
+      @include breakpoint(sm) {
+        font-size: 18px;
+      }
+      @include breakpoint(md) {
+        font-size: 19px;
+      }
+      @include breakpoint(lg) {
+        font-size: 20px;
+      }
+      &:focus {
+        border-color: transparent;
+        box-shadow: none;
+      }
+      &:not(.collapsed) {
+        color: $title-color;
+        background-color: $white-color;
+        box-shadow: none;
+        &::after {
+          content: none;
+        }
+      }
+
+      &::after {
+        content: none;
+      }
+    }
+  }
+  &-body {
+    background-color: $white-color;
+    color: $eash-color;
+    font-size: $fs-16;
+    @extend %text-regular;
+    line-height: 1.5;
+    @include add-prefix(border-radius, 0 0 5px 5px !important);
+    padding: 0 35px 20px;
+    padding-left: 50px;
+
+    li {
+      padding: 5px 0;
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+}

@@ -1,0 +1,30 @@
+@charset "UTF-8";
+
+// 1.configuration and helpers
+@import "abstracts/variables", "abstracts/mixins";
+
+//2.vendors
+@import "vendors/normalize", "vendors/rfs";
+
+//3.Base stuff
+@import "base/typography", "base/common", "base/helpers", "base/fonts";
+
+@import "abstracts/extend";
+
+// 4.layout-related section
+@import "layout/header", "layout/banner", "layout/service-cart",
+  "layout/devlopment", "layout/offer", "layout/recent-project",
+  "layout/question", "layout/pricing", "layout/revew", "layout/blog-post",
+  "layout/services", "layout/team", "layout/team__item", "layout/sponsor",
+  "layout/map", "layout/single-product", "layout/client-review", "layout/footer";
+
+// 5.components
+@import "components/button", "components/accordion", "components/download_btn";
+// 6. Page-specific styles
+@import "pages/home", "pages/home-2", "pages/submit", "pages/about",
+  "pages/service-single", "pages/team-single", "pages/about-2",
+  "pages/portfolio", "pages/blog", "pages/blog-single", "pages/shop",
+  "pages/shop-single", "pages/cart", "pages/contact", "pages/404";
+
+// 7. Themes
+// @import "themes/default";

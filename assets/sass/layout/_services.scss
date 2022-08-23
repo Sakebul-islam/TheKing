@@ -1,0 +1,11 @@
+.service {
+  background-color: $fa-color;
+
+  &__thumb {
+    margin-bottom: 30px;
+
+    @include breakpoint(lg) {
+      margin-bottom: 0px;
+    }
+  }
+}

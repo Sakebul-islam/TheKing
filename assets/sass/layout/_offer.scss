@@ -1,0 +1,89 @@
+.offer {
+  background-color: $theme-color;
+
+  &--home2 {
+    background-color: $white-color;
+  }
+
+  &__item {
+    &:hover {
+      & .offer__content {
+        h6 {
+          color: $theme-color;
+          @extend %text-bold, %text-capitalize;
+          margin-bottom: 7px;
+          font-size: $fs-h6;
+          line-height: 2;
+
+          a {
+            color: $theme-color;
+          }
+        }
+      }
+      & .offer__thumb__image {
+        img {
+          transform: rotateY(180deg);
+        }
+      }
+    }
+
+    &--home2 {
+      box-shadow: 0px 0px 10px 0px rgba(136, 136, 136, 0.1);
+    }
+  }
+  &__inner {
+    background-color: $white-color;
+    @extend %flex, %ai-center, %justify-center;
+
+    padding: 40px 10px 39px 10px;
+    @include add-prefix(border-radius, 4px);
+    // padding: 40px 41px 39px 50px;
+
+    @include breakpoint(lg) {
+      flex-wrap: nowrap;
+      padding: 40px 41px 39px 50px;
+    }
+  }
+  &__thumb {
+    @include breakpoint(lg) {
+      flex-wrap: nowrap;
+      margin-right: 29px;
+    }
+    &__image {
+      width: 100px;
+      height: 100px;
+      line-height: 100px;
+      background-color: $theme-color;
+      @extend %text-center;
+      @include add-prefix(border-radius, 50%);
+
+      img {
+        @include transition($transition);
+      }
+    }
+  }
+  &__content {
+    @extend %text-center;
+    @include breakpoint(lg) {
+      text-align: left;
+    }
+    h6 {
+      color: $title-color;
+      @extend %text-bold, %text-capitalize;
+      margin-bottom: 7px;
+      font-size: $fs-h6;
+      line-height: 2;
+
+      a {
+        color: $title-color;
+      }
+    }
+    p {
+      color: $eash-color;
+      @extend %text-regular, %text-capitalize;
+      margin-bottom: 3px;
+      font-size: $fs-base;
+      line-height: 1.5;
+    }
+  }
+}

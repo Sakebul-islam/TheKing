@@ -1,0 +1,170 @@
+.recent-pro {
+  background-color: $white-color;
+
+  &--extend {
+    background-color: $theme-color;
+  }
+
+  &__menu {
+    &-item {
+      @extend %flex, %justify-center, %ai-center;
+      gap: 10px;
+
+      .filter-item {
+        background-color: $white-color;
+        box-shadow: 0px 0px 8px 0px rgba(136, 136, 136, 0.08);
+        padding: 0 8px;
+        @include add-prefix(border-radius, 5px);
+        cursor: pointer;
+
+        @include breakpoint(sm) {
+          padding: 0 10px;
+        }
+        @include breakpoint(md) {
+          padding: 0 20px;
+        }
+        a {
+          @extend %text-uppercase, %text-bold;
+          color: $project-color;
+          font-size: $fs-14;
+          margin-right: 8px;
+
+          @include breakpoint(lg) {
+            margin-right: 16px;
+          }
+        }
+        span {
+          @extend %text-bold;
+          color: $project-color;
+          background-color: #fafafa;
+          line-height: 3.1;
+          padding: 8.5px 9px;
+          @include add-prefix(border-radius, 50%);
+          @include add-prefix(transition, all ease 0.5s);
+        }
+        &.active {
+          a {
+            color: $theme-color;
+          }
+          span {
+            background-color: $theme-color;
+            color: $white-color;
+          }
+        }
+      }
+    }
+  }
+  &__project {
+    margin-top: 50px;
+  }
+  &__cart {
+    row-gap: 30px;
+  }
+  &__item {
+    &:hover {
+      .recent-pro__thumb-image::after {
+        @include add-prefix(transform, scale(0.9));
+      }
+      .recent-pro__thumb-image {
+        img {
+          @include add-prefix(transform, scale(1.1) rotate(1.5deg));
+          width: 100%;
+        }
+      }
+
+      .recent-pro__thumb .overlay {
+        visibility: visible !important;
+        opacity: 1;
+      }
+      .recent-pro__content h6 a {
+        color: $theme-color;
+      }
+    }
+  }
+  &__inner {
+    background-color: $white-color;
+    @include transition($transition);
+    box-shadow: 0px 0px 10px 0px rgba(136, 136, 136, 0.1);
+
+    &:hover {
+      box-shadow: 0px 20px 20px 0px rgba(136, 136, 136, 0.2);
+    }
+  }
+  &__thumb {
+    @extend %p-rel;
+    place-content: center;
+    background-color: #fafafa;
+    &-image {
+      &::after {
+        @extend %p-abs;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        background: rgba(255, 255, 255, 0.902);
+        opacity: 0.8;
+        @include add-prefix(transform, scale(0));
+        @include transition($transition);
+      }
+    }
+    .overlay {
+      @extend %p-abs;
+      top: 50%;
+      left: 50%;
+      opacity: 0;
+      z-index: 1;
+      width: 100%;
+      text-align: center;
+      visibility: hidden;
+      @include add-prefix(transition, all 0.3s ease);
+      @include add-prefix(transform, translate(-50%, -50%));
+
+      & > a {
+        @extend %text-center;
+        width: 50px;
+        height: 50px;
+        line-height: 50px;
+        font-size: 20px;
+        margin: 0 5.3px;
+        color: $white-color;
+        background: $theme-color;
+        @include add-prefix(border-radius, 100%);
+        display: inline-block;
+
+        &:nth-child(1) {
+          @include add-prefix(transform, rotate(90deg));
+        }
+
+        i {
+          font-size: $fs-h6;
+        }
+      }
+    }
+    &-image {
+      overflow: hidden;
+      img {
+        @include add-prefix(transition, all ease 0.5s);
+        width: 100%;
+      }
+    }
+  }
+  &__content {
+    @extend %text-center;
+    padding: 23px;
+    h6 {
+      margin-bottom: 10px;
+      a {
+        color: $title-color;
+        font-size: $fs-h6;
+        @extend %text-capitalize, %text-bold, %d-block;
+        line-height: 1.5;
+        @extend %text-1;
+      }
+    }
+    p {
+      color: $pra-color;
+      @extend %text-regular;
+      line-height: 1.5;
+    }
+  }
+}

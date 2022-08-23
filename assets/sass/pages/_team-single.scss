@@ -1,0 +1,179 @@
+.team-single {
+  &__wrapper {
+    box-shadow: 0px 0px 21px 0px rgba(136, 136, 136, 0.1);
+    padding: 15px;
+
+    @include breakpoint(md) {
+      padding: 50px;
+    }
+  }
+  &__top {
+    margin-bottom: 40px;
+  }
+
+  &__thumb {
+    img {
+      width: 100%;
+    }
+  }
+  &__content {
+    h5 {
+      font-size: 24px;
+      @extend %text-bold, %text-capitalize, %text-bold;
+      color: $project-color;
+      margin-bottom: 6px;
+    }
+    .member-dagi {
+      @extend %text-regular;
+      text-transform: initial;
+      color: $project-color;
+      display: inline-block;
+      margin-bottom: 12px;
+    }
+    p {
+      margin-bottom: 20px;
+    }
+    h6 {
+      font-size: 18px;
+      @extend %text-bold, %text-capitalize, %text-bold;
+      color: $title-color;
+      margin-bottom: 15px;
+    }
+    &-ul {
+      li {
+        padding: 14px 0;
+        .add-right {
+          margin-left: 5px;
+        }
+
+        span {
+          &.add-left {
+            text-transform: initial;
+            display: inline-block;
+            width: 68px;
+            margin-right: 5px;
+            @extend %text-regular;
+            color: $pra-color;
+            font-size: 12px;
+
+            @include breakpoint(sm) {
+              font-size: 16px;
+            }
+          }
+          &.add-right {
+            text-transform: initial;
+            margin-left: 5px;
+            color: $black-color;
+            font-size: 12px;
+            @extend %text-bold;
+
+            @include breakpoint(sm) {
+              font-size: 16px;
+            }
+          }
+        }
+      }
+      .social-share {
+        i {
+          margin: 0 8px;
+        }
+        .twitter {
+          color: $twitter;
+        }
+        .instagram {
+          color: $instagram;
+        }
+        .dribbble {
+          color: $dribbble;
+        }
+        .vimeo {
+          color: $vimeo;
+        }
+        .behance {
+          color: $behance;
+        }
+      }
+    }
+  }
+  &__skill {
+    .title {
+      margin-bottom: 25px;
+      h6 {
+        font-size: 18px;
+        @extend %text-bold, %text-capitalize;
+        color: $project-color;
+      }
+    }
+    .skill-canves {
+      @extend %flex, %justify-center, %ai-center;
+
+      .team-item {
+        margin: 0 20px;
+
+        @include breakpoint(lg) {
+          margin: 0 23.5px;
+        }
+
+        .pie-title-center {
+          @extend %d-inline-block, %p-rel, %text-center;
+          margin-bottom: 15px;
+          canvas {
+            width: 90px;
+          }
+          &#ui .pie-value {
+            color: #ff4600 !important;
+          }
+          &#ux .pie-value {
+            color: #1abc80 !important;
+          }
+          &#html .pie-value {
+            color: #1ba1d2 !important;
+          }
+          .pie-value {
+            @extend %d-block, %p-abs,%text-bold;
+            font-size: 14px;
+            height: 40px;
+            top: 50%;
+            left: 0;
+            right: 0;
+            margin-top: -20px;
+            line-height: 40px;
+          }
+        }
+      }
+      @media (min-width: 414px) {
+        flex-wrap: nowrap;
+
+        .team-item {
+          margin-top: 0 !important;
+        }
+      }
+      .team-item:last-child {
+        margin-top: 30px;
+      }
+    }
+  }
+  &__award {
+    .title {
+      margin-bottom: 25px;
+      h6 {
+        font-size: 18px;
+        @extend %text-bold, %text-capitalize;
+        color: $project-color;
+      }
+    }
+    &__item {
+      margin-bottom: 25px;
+
+      .thumb {
+        img {
+          margin-bottom: 18px;
+        }
+      }
+
+      @include breakpoint(lg) {
+        margin-bottom: 0;
+      }
+    }
+  }
+}

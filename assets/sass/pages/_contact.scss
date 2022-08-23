@@ -1,0 +1,98 @@
+.contact-us {
+  &__wrapper {
+    @extend %p-rel;
+    box-shadow: 0px 0px 10px 0px rgba(136, 136, 136, 0.1);
+    padding: 10px;
+    margin-bottom: -8px;
+    background-color: $white-color;
+    @include breakpoint(sm) {
+      padding: 20px;
+    }
+    @include breakpoint(md) {
+      padding: 30px;
+    }
+  }
+  &__contact-area {
+    margin-left: 0;
+    @include breakpoint(lg) {
+      margin-left: 5px;
+    }
+  }
+  &__item {
+    width: 100%;
+    margin-bottom: 30px;
+    @extend %text-center;
+
+    @include breakpoint(lg) {
+      max-width: 300px;
+      text-align: left;
+    }
+  }
+  &__thumb {
+    margin-bottom: 6px;
+  }
+  &__content {
+    h6 {
+      @extend %text-bold;
+      color: $contact-color;
+      text-transform: initial;
+      line-height: 1.5;
+      margin-bottom: 2px;
+    }
+  }
+  &__title {
+    margin-bottom: 35px;
+    h5 {
+      font-size: 24px;
+      @extend %text-bold;
+      color: $contact-color;
+      text-transform: initial;
+    }
+  }
+  &__form {
+    .form-message {
+      margin-top: 30px;
+      &.error {
+        color: red;
+      }
+      &.success {
+        color: green;
+      }
+    }
+    form {
+      @extend %flex, %justify-between;
+      & > * {
+        padding: 20px;
+        margin-bottom: 30px;
+        outline: none;
+        &::placeholder {
+          @extend %text-capitalize;
+        }
+
+        &:last-child {
+          padding: 0;
+        }
+      }
+
+      .devite {
+        width: calc(100%);
+
+        @include breakpoint(lg) {
+          width: calc(100% / 2 - 15px);
+        }
+      }
+      input {
+        border: 1px solid #ebebeb;
+      }
+      textarea {
+        border: 1px solid #ebebeb;
+        height: 150px;
+        resize: none;
+      }
+      .comon-btn {
+        border: none;
+        margin-bottom: 0;
+      }
+    }
+  }
+}

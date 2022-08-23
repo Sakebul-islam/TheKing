@@ -1,0 +1,1096 @@
+// preloder scss start header
+.preloder-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 9999;
+
+  .overlayDoor {
+
+    &:before,
+    &:after {
+      content: "";
+      position: absolute;
+      width: 50%;
+      height: 100%;
+      background: #111;
+      transition: 0.5s cubic-bezier(0.77, 0, 0.18, 1);
+      transition-delay: 0.8s;
+    }
+
+    &:before {
+      left: 0;
+    }
+
+    &:after {
+      right: 0;
+    }
+  }
+
+  &.loaded {
+    .overlayDoor {
+      &:before {
+        left: -50%;
+      }
+
+      &:after {
+        right: -50%;
+      }
+    }
+
+    .overlayContent {
+      opacity: 0;
+      margin-top: -15px;
+    }
+  }
+
+  .overlayContent {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    transition: 0.5s cubic-bezier(0.77, 0, 0.18, 1);
+  }
+}
+
+.loader {
+  width: 120px;
+  height: 120px;
+  border: 3px solid $theme-color;
+  border-bottom: 3px solid transparent;
+  border-radius: 50%;
+  position: relative;
+  animation: spin 1s linear infinite;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .inner {
+    width: 80px;
+    height: 80px;
+    border: 3px solid transparent;
+    border-top: 3px solid $alter-title-color;
+    border-left: 3px solid $alter-title-color;
+    border-radius: 50%;
+    animation: spinInner 1s linear infinite;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .inner-loding {
+      width: 55px;
+      height: 55px;
+      border: 3px solid transparent;
+      border-top: 3px solid $theme-color;
+      border-right: 3px solid $theme-color;
+      border-radius: 50%;
+      animation: spinInner-inner 1s linear infinite;
+    }
+  }
+}
+
+@keyframes spin {
+  0% {
+    @include add-prefix(transform, rotate(0deg));
+  }
+
+  100% {
+    @include add-prefix(transform, rotate(360deg));
+  }
+}
+
+@keyframes spinInner {
+  0% {
+    @include add-prefix(transform, rotate(0deg));
+  }
+
+  100% {
+    @include add-prefix(transform, rotate(-720deg));
+  }
+}
+
+@keyframes spinInner-inner {
+  0% {
+    @include add-prefix(transform, rotate(0deg));
+  }
+
+  100% {
+    @include add-prefix(transform, rotate(720deg));
+  }
+}
+
+// preloder scss end header
+
+// all section padding top and bottom
+.padding-tb {
+  padding-top: 80px;
+  padding-bottom: 80px;
+
+  @include breakpoint(sm) {
+    padding-top: 90px;
+    padding-bottom: 90px;
+  }
+
+  @include breakpoint(md) {
+    padding-top: 100px;
+    padding-bottom: 100px;
+  }
+
+  @include breakpoint(lg) {
+    padding-top: 110px;
+    padding-bottom: 110px;
+  }
+
+  @include breakpoint(xl) {
+    padding-top: 120px;
+    padding-bottom: 120px;
+  }
+}
+
+.padding-t {
+  padding-top: 80px;
+
+  @include breakpoint(sm) {
+    padding-top: 90px;
+  }
+
+  @include breakpoint(md) {
+    padding-top: 100px;
+  }
+
+  @include breakpoint(lg) {
+    padding-top: 110px;
+  }
+
+  @include breakpoint(xl) {
+    padding-top: 120px;
+  }
+}
+
+.padding-b {
+  padding-bottom: 80px;
+
+  @include breakpoint(sm) {
+    padding-bottom: 90px;
+  }
+
+  @include breakpoint(md) {
+    padding-bottom: 100px;
+  }
+
+  @include breakpoint(lg) {
+    padding-bottom: 11px;
+  }
+
+  @include breakpoint(xl) {
+    padding-bottom: 120px;
+  }
+}
+
+// Menu Normalizer
+.navbar-nav li:hover>ul.dropdown-menu {
+  // display: block;
+  @include add-prefix(transform, scaleY(1));
+  opacity: 1;
+}
+
+.dropdown-submenu {
+  position: relative;
+
+  &:hover>a {
+    background-color: $theme-color;
+    color: $white-color !important;
+  }
+}
+
+.dropdown-submenu>.dropdown-menu {
+  top: 0px;
+  left: 100%;
+  margin-top: -6px;
+}
+
+/* rotate caret on hover */
+.dropdown-menu {
+  &>li {
+    &>a {
+      &::after {
+        @extend %p-abs;
+        top: 50%;
+        right: 15px;
+        @include add-prefix(transform, translateY(-50%));
+      }
+
+      // &:hover {
+      //   &::after {
+      //     @include transition($transition);
+      //     @include add-prefix(transform, rotate(-90deg));
+      //   }
+      // }
+    }
+
+    &:hover {
+      & a::after {
+        @include transition($transition);
+        @include add-prefix(transform, rotate(-90deg));
+      }
+    }
+  }
+}
+
+.section-header {
+  @extend %text-light,
+  %text-uppercase,
+  %text-center;
+  margin-bottom: 49px;
+
+  h6 {
+    @extend %text-light,
+    %text-uppercase;
+    font-size: 17px;
+    color: $white-color;
+    margin-bottom: 22px;
+
+    @include breakpoint(sm) {
+      font-size: 18px;
+    }
+
+    @include breakpoint(md) {
+      font-size: 19px;
+    }
+
+    @include breakpoint(lg) {
+      font-size: 20px;
+    }
+  }
+
+  h3 {
+    @extend %text-bold,
+    %text-capitalize;
+    margin-bottom: 29px;
+    font-size: 30px;
+    color: $white-color;
+    line-height: 1.33;
+
+    @include breakpoint(sm) {
+      font-size: 32px;
+    }
+
+    @include breakpoint(md) {
+      font-size: 34px;
+    }
+
+    @include breakpoint(lg) {
+      font-size: 36px;
+    }
+  }
+
+  &--theme-title-color {
+    margin-bottom: 41px !important;
+
+    h6 {
+      color: $theme-color;
+    }
+
+    h3 {
+      color: $title-color;
+    }
+  }
+}
+
+.header-section {
+  padding: 70px 0;
+
+  @include breakpoint(sm) {
+    padding: 95.5px 0;
+  }
+
+  @include breakpoint(md) {
+    padding: 111px 0;
+  }
+
+  @include breakpoint(lg) {
+    padding: 131.5px 0;
+  }
+
+  @include breakpoint(xl) {
+    padding: 152px 0;
+  }
+
+  h3 {
+    @extend %text-capitalize,
+    %text-bold;
+    color: $title-color;
+    font-size: 28px;
+    line-height: 1;
+
+    @include breakpoint(sm) {
+      font-size: 30px;
+    }
+
+    @include breakpoint(md) {
+      font-size: 32px;
+    }
+
+    @include breakpoint(lg) {
+      font-size: 34px;
+    }
+
+    @include breakpoint(xl) {
+      font-size: 36px;
+    }
+  }
+
+  .breadcrumb {
+    @extend %flex,
+    %mb-0;
+
+    li {
+      @extend %text-capitalize,
+      %text-bold;
+      color: $title-color;
+      font-size: 16px;
+      line-height: 2.25;
+
+      a {
+        @extend %text-capitalize,
+        %text-bold;
+        color: $title-color;
+        font-size: 16px;
+        line-height: 2.25;
+
+        &:hover {
+          color: $theme-color;
+        }
+
+        &::after {
+          content: "-";
+          // content: "/";
+          color: $title-color;
+          margin-left: -1px;
+          padding: 0 8px;
+        }
+      }
+    }
+  }
+}
+
+.comon-header {
+  margin-bottom: 37px;
+
+  h6 {
+    @extend %text-thin,
+    %text-uppercase;
+    font-size: 17px;
+    color: $theme-color;
+    line-height: 1.9;
+
+    @include breakpoint(sm) {
+      font-size: 18px;
+    }
+
+    @include breakpoint(md) {
+      font-size: 19px;
+    }
+
+    @include breakpoint(lg) {
+      font-size: 20px;
+    }
+  }
+
+  h3 {
+    @extend %text-bold,
+    %text-capitalize;
+    font-size: 30px;
+    color: $title-color;
+    line-height: 1.33;
+
+    @include breakpoint(sm) {
+      font-size: 32px;
+    }
+
+    @include breakpoint(md) {
+      font-size: 34px;
+    }
+
+    @include breakpoint(lg) {
+      font-size: 36px;
+    }
+  }
+
+  &--service {
+    margin-bottom: 25px;
+
+    h3 {
+      margin-bottom: 16px;
+    }
+
+    p {
+      @extend %text-regular;
+      color: $eash-color;
+      font-size: $fs-18;
+      line-height: 1.6;
+      max-width: 500px;
+    }
+  }
+}
+
+// paginations
+
+.paginations {
+  margin-bottom: 30px;
+
+  @include breakpoint(lg) {
+    margin-bottom: 0;
+  }
+
+  li {
+    padding: 5px;
+
+    &>a {
+      @extend %text-center,
+      %justify-center,
+      %flex,
+      %ac-center,
+      %text-bold;
+      width: 46px;
+      height: 46px;
+      border: 1px solid $paginations-bdr-color;
+      color: $paginations-color;
+      @include add-prefix(border-radius, 50%);
+      @include transition($transition);
+
+      &:hover {
+        background-color: $theme-color;
+        border-color: $theme-color;
+        color: $white-color;
+      }
+
+      &.active {
+        background-color: $theme-color;
+        border-color: $theme-color;
+        color: $white-color;
+      }
+    }
+  }
+}
+
+// aside section
+
+.widget {
+  box-shadow: 0px 0px 10px 0px rgba(136, 136, 136, 0.1);
+  margin-bottom: 30px;
+
+  &-search {
+    padding: 25px 30px;
+
+    &>h6 {
+      font-size: $fs-18;
+      @extend %text-bold,
+      %text-capitalize;
+      color: $contact-color;
+      margin: 0 -30px 20px;
+      border-bottom: 1px solid $border-color-2;
+    }
+
+    form {
+      @extend %flex,
+      %no-wrap,
+      %p-rel;
+
+      input[type="search"] {
+        background-color: $fa-color;
+        display: inline-block;
+        padding: 20px 25px;
+      }
+
+      button[type="submit"] {
+        @extend %p-abs;
+        top: 0;
+        right: 0;
+        line-height: 60px;
+        width: 60px;
+        height: 60px;
+        padding: 0;
+        outline: none;
+        border: none;
+        font-size: 20px;
+        cursor: pointer;
+        background: $fa-color;
+      }
+    }
+  }
+
+  &-title {
+    h6 {
+      font-size: $fs-18;
+      @extend %text-bold,
+      %text-capitalize;
+      color: $contact-color;
+      padding: 23px 29px;
+      border-bottom: 1px solid $border-color-2;
+    }
+  }
+
+  &-ul {
+    padding-bottom: 10px;
+  }
+
+  &-list {
+    border-bottom: 1px solid $border-color-2;
+
+    &>a {
+      @extend %flex,
+      %justify-between,
+      %text-capitalize;
+      color: $project-color;
+      padding: 14.5px 28px;
+      text-transform: initial;
+
+      &:hover {
+        color: $theme-color;
+        padding-left: 33px !important;
+        @extend %text-bold;
+      }
+    }
+
+    &:last-child {
+      border: none !important;
+    }
+
+    &.li {
+      padding: 30px;
+      @extend %flex,
+      %justify-between;
+
+      @include breakpoint(sm) {
+        flex-direction: row-reverse;
+      }
+
+      .post-thumb {
+        width: 100px;
+        height: 80px;
+        overflow: hidden;
+
+        img {
+          @include transition($transition);
+
+          &:hover {
+            @include add-prefix(transform, scale(1.2) rotate(3deg));
+          }
+        }
+      }
+
+      .post-content {
+        width: calc(100% - 113px);
+
+        &>a {
+          color: $pra-color;
+          text-transform: initial;
+
+          h6 {
+            font-size: 16px;
+            @extend %text-medium;
+            line-height: 1.5;
+            margin-bottom: 10px;
+          }
+
+          p {
+            font-size: 16px;
+            @extend %text-regular;
+            line-height: 1.5;
+          }
+
+          &:hover {
+            h6 {
+              color: $theme-color;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  &-archive {
+    .widget-list {
+      a {
+        padding: 22px 28px;
+      }
+    }
+  }
+
+  &-gallery {
+    .widget-ul {
+      @extend %flex,
+      %justify-center;
+      padding: 10px;
+
+      @include breakpoint(sm) {
+        padding: 30px;
+      }
+    }
+
+    .widget-list {
+      border: none;
+      @extend %d-inline-block;
+      width: calc(100% / 3);
+
+      a {
+        padding: 0px;
+        @extend %d-block;
+        overflow: hidden;
+        margin: 3px;
+
+        img {
+          @include add-prefix(transform, scale(1));
+          @include transition($transition);
+          width: 100%;
+        }
+
+        &:hover {
+          padding: initial !important;
+
+          img {
+            @include add-prefix(transform, scale(1.1));
+          }
+        }
+      }
+    }
+  }
+
+  &-tag {
+    .tag-list {
+      @extend %flex,
+      %justify-center,
+      %text-capitalize;
+      padding: 30px;
+
+      a {
+        margin: 5px;
+        @include transition($transition);
+        @extend %d-inline-block;
+        padding: 3px 10px;
+        background-color: $white-color;
+        color: $title-color;
+        border: 1px solid $border-color-2;
+        font-size: 14px;
+        line-height: 1.6;
+
+        &:hover {
+          background-color: $theme-color;
+          color: $white-color;
+        }
+      }
+    }
+  }
+}
+
+// product cart
+.product-wrapper.grid {
+  .product-item {
+    display: block;
+    box-shadow: 0px 0px 10px 0px rgba(136, 136, 136, 0.1);
+    padding: 10px;
+
+    &:hover {
+      .product-thumb {
+        &::after {
+          @include add-prefix(transform, scale(1));
+        }
+      }
+
+      .product-thumb {
+        img {
+          @include add-prefix(transform, scale(1.1));
+        }
+      }
+
+      .product-action-link {
+        opacity: 1;
+        z-index: 9;
+        @include add-prefix(transform, translate(-50%, -50%));
+        justify-content: center !important;
+        width: 100% !important;
+        top: 50%;
+      }
+    }
+
+    .product-thumb {
+      @extend %p-rel;
+      overflow: hidden;
+
+      &::after {
+        @extend %p-abs;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        background-color: rgba(232, 80, 91, 0.5);
+        opacity: 0.4;
+        @include add-prefix(transform, scale(0));
+        @include transition($transition);
+      }
+
+      img {
+        width: 100%;
+        @include transition($transition);
+      }
+    }
+
+    .product-action-link {
+      @extend %flex,
+      %p-abs,
+      %justify-center;
+      opacity: 0;
+      top: 100%;
+      left: 50%;
+      @include transition($transition);
+      @include add-prefix(transform, translateX(-50%));
+      width: 100%;
+
+      a {
+        @extend %text-center;
+        width: 40px;
+        height: 40px;
+        line-height: 40px;
+        border-radius: 100%;
+        color: $white-color;
+        margin: 5px;
+        background: $theme-color;
+        @include transition($transition);
+
+        &.view-modal {
+          cursor: pointer;
+        }
+      }
+    }
+
+    .product-content {
+      padding: 26px 0 20px;
+      @extend %text-center;
+
+      h6 {
+        font-size: $fs-18;
+        color: $contact-color;
+        @extend %text-bold;
+
+        a {
+          color: $contact-color;
+          @extend %text-2;
+        }
+
+        &:hover {
+          a {
+            color: $theme-color;
+          }
+        }
+      }
+
+      .product-rating {
+        color: $star-color;
+        padding: 10px 0;
+      }
+    }
+
+    .product-price {
+      span {
+        font-size: $fs-16;
+        @extend %text-bold;
+        color: $contact-color;
+      }
+    }
+  }
+
+  .product-list-item {
+    display: none;
+  }
+}
+
+.product-wrapper.list {
+  .col-12 {
+    width: 100%;
+  }
+
+  .product-list-item {
+    @extend %flex;
+    padding: 10px;
+    margin-bottom: 10px;
+    align-items: center;
+    background: #fff;
+    -webkit-animation-name: zoomIn;
+    animation-name: zoomIn;
+    -webkit-animation-duration: 0.5s;
+    animation-duration: 0.5s;
+    box-shadow: 0 0 10px rgb(136 136 136 / 10%);
+    -webkit-transition: all 0.3s ease;
+    -moz-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+
+    display: block;
+    box-shadow: 0px 0px 10px 0px rgba(136, 136, 136, 0.1);
+    padding: 10px;
+
+    &:hover {
+      .product-thumb {
+        &::after {
+          @include add-prefix(transform, scale(1));
+        }
+      }
+
+      .product-thumb {
+        img {
+          @include add-prefix(transform, scale(1.1));
+        }
+      }
+
+      .product-action-link {
+        opacity: 1;
+        z-index: 9;
+        @include add-prefix(transform, translate(-50%, -50%));
+        justify-content: center !important;
+        width: 100% !important;
+      }
+    }
+
+    .product-thumb {
+      @extend %p-rel;
+      overflow: hidden;
+
+      &::after {
+        @extend %p-abs;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        background-color: $black-color;
+        opacity: 0.4;
+        @include add-prefix(transform, scale(0));
+        @include transition($transition);
+      }
+
+      img {
+        width: 100%;
+        @include transition($transition);
+      }
+    }
+
+    .product-action-link {
+      @extend %flex,
+      %p-abs,
+      %justify-between;
+      opacity: 0;
+      top: 50%;
+      left: 50%;
+      @include transition($transition);
+      @include add-prefix(transform, translate(-50%, -50%));
+      width: 300%;
+
+      a {
+        @extend %text-center;
+        width: 40px;
+        height: 40px;
+        line-height: 40px;
+        border-radius: 100%;
+        color: $white-color;
+        margin: 5px;
+        background: $theme-color;
+        @include transition($transition);
+
+        &.view-modal {
+          cursor: pointer;
+        }
+      }
+    }
+
+    .product-thumb {
+      width: 100%;
+
+      @include breakpoint(sm) {
+        width: 35%;
+      }
+
+      img {
+        width: 100%;
+      }
+    }
+
+    .product-content {
+      width: 100%;
+      text-align: left;
+      padding: 20px 20px 10px;
+
+      @include breakpoint(sm) {
+        width: 65%;
+        padding-left: 20px;
+      }
+
+      h6 {
+        font-size: $fs-18;
+        color: $contact-color;
+        @extend %text-bold;
+
+        a {
+          color: $contact-color;
+        }
+
+        &:hover {
+          a {
+            color: $theme-color;
+          }
+        }
+      }
+
+      .product-rating {
+        color: $star-color;
+        padding: 10px 0;
+      }
+
+      .product-price {
+        margin-bottom: 10px;
+
+        span {
+          font-size: $fs-16;
+          @extend %text-bold;
+          color: $contact-color;
+        }
+      }
+
+      p {
+        font-size: $fs-16;
+        color: $contact-color;
+      }
+    }
+  }
+
+  .product-item {
+    display: none;
+  }
+}
+
+// scrollToTop
+
+.scrollToTop {
+  position: fixed;
+  bottom: -30%;
+  right: 5%;
+  z-index: 999;
+  width: 40px;
+  height: 40px;
+  line-height: 40px;
+  background-image: radial-gradient($theme-color 0%, $title-color 100%);
+  text-align: center;
+  border-radius: 50%;
+  font-size: 24px;
+  @include add-prefix(animation, scroll-Top 5s linear infinite);
+  @include transition($transition);
+
+  &::after {
+    @extend%p-abs;
+    content: "\f102" !important;
+    font: var(--fa-font-solid);
+    top: 50%;
+    left: 0;
+    width: 100%;
+    font-size: 20px;
+    @include add-prefix(transform, translateY(-50%));
+  }
+
+  &:hover,
+  &:focus {
+    color: $white-color;
+  }
+}
+
+@keyframes scroll-Top {
+  0% {
+    @include add-prefix(transform, translateY(-15px));
+  }
+
+  50% {
+    @include add-prefix(transform, translateY(0px));
+  }
+
+  100% {
+    @include add-prefix(transform, translateY(-15px));
+  }
+}
+
+.wev-1,
+.wev-2 {
+  @extend %p-abs;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  left: 50%;
+  top: 50%;
+  @include add-prefix(transform, translate(-50%, -50%));
+  background-image: radial-gradient($theme-color 0%, $theme-color 100%);
+
+  &::after,
+  &::before {
+    @extend %p-abs;
+    background-image: radial-gradient($theme-color 0%, $theme-color 100%);
+
+    border-radius: 50%;
+    left: 50%;
+    top: 50%;
+    @include add-prefix(transform, translate(-50%, -50%));
+    z-index: 0;
+  }
+
+  &::after {
+    width: 30px;
+    height: 30px;
+    background: transparent;
+  }
+
+  &:before {
+    width: 40px;
+    height: 40px;
+  }
+}
+
+.wev-1 {
+  @include add-prefix(animation, pluse_animate 3s infinite linear);
+}
+
+.wev-2 {
+  &::before {
+    @include add-prefix(animation, pluse_animate 3s infinite linear);
+    -webkit-animation-delay: 1s;
+    animation-delay: 1s;
+    margin-left: 0;
+    margin-top: 0;
+  }
+}
+
+@keyframes pluse_animate {
+  0% {
+    opacity: 1;
+    @include add-prefix(transform, translate(-50%, -50%) scale(0.3));
+  }
+
+  100% {
+    opacity: 0;
+    @include add-prefix(transform, translate(-50%, -50%) scale(2));
+  }
+}
+
+form {
+  input[type="text"]:focus {
+    border-color: rgba(232, 80, 91, 0.6) !important;
+  }
+
+  input[type="email"]:focus {
+    border-color: rgba(232, 80, 91, 0.6) !important;
+  }
+
+  textarea:focus {
+    border-color: rgba(232, 80, 91, 0.6) !important;
+    color: $title-color !important;
+  }
+}

@@ -1,0 +1,247 @@
+.shop-cart {
+  .cart-top {
+    margin-bottom: 40px;
+    box-shadow: 0 0 10px rgb(136 136 136 / 10%);
+    overflow-x: auto;
+  }
+  table {
+    width: 700px;
+    @extend %text-semi-bold;
+
+    @include breakpoint(md) {
+      width: 100%;
+    }
+
+    thead {
+      tr {
+        background-color: $theme-color;
+        th {
+          color: $white-color;
+          padding: 18px;
+          border: none;
+          @extend %text-capitalize;
+        }
+      }
+    }
+    tbody {
+      tr {
+        border-bottom: 1px solid #ecf0f3;
+
+        &:hover {
+          .product-itm .p-thumb {
+            img {
+              @include add-prefix(transform, scale(1.1));
+            }
+          }
+        }
+        td {
+          padding: 20px;
+        }
+        .product-itm {
+          @extend %flex, %ai-center;
+          .p-thumb {
+            width: 85px;
+            overflow: hidden;
+            img {
+              @include transition($transition);
+            }
+          }
+          .p-content {
+            width: calc(100% - 85px);
+            padding-left: 10px;
+
+            a {
+              color: $alter-title-color;
+              font-size: $fs-18;
+              @extend %text-capitalize;
+
+              &:hover {
+                color: $theme-color;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  // cart bottom
+
+  .cart-bottom {
+    margin-bottom: 40px;
+    box-shadow: 0 0 10px rgb(136 136 136 / 10%);
+    .cart-checkout-box {
+      @extend %flex, %justify-between, %ai-center;
+      padding: 22px 30px;
+
+      form {
+        &.cuppon-code {
+          max-width: 340px;
+          @extend %flex, %no-wrap;
+
+          input {
+            padding: 18.5px 18px;
+            margin-bottom: 0;
+            border: 1px solid $border-color-2;
+          }
+          input[type="submit"] {
+            color: $alter-title-color;
+            font-weight: 500;
+            margin-left: -10px;
+            cursor: pointer;
+            background-color: $select-bg-color;
+            @include transition($transition);
+            @include add-prefix(border-radius, 0 4px 4px 0);
+            border: none;
+            &:hover {
+              background-color: $theme-color;
+              color: $white-color;
+            }
+          }
+        }
+
+        &.cart-checkout {
+          width: 100%;
+          margin-top: 30px;
+          justify-content: space-between;
+          @extend %flex;
+
+          @include breakpoint(lg) {
+            max-width: 390px;
+            text-align: right;
+            margin-top: 0;
+          }
+
+          input {
+            background: $white-color;
+            color: $alter-title-color;
+            margin-bottom: 0;
+
+            &:first-child {
+              padding: 19px 42px;
+            }
+            &:last-child {
+              padding: 19px 24.5px;
+            }
+          }
+
+          input[type="submit"] {
+            width: auto;
+            cursor: pointer;
+            color: $alter-title-color;
+            background: $select-bg-color;
+            border: none;
+            @include transition($transition);
+            @extend %text-bold;
+
+            &:hover {
+              background-color: $theme-color;
+              color: $white-color;
+              @include transition($transition);
+            }
+          }
+
+          @include breakpoint(max-sm) {
+            input[type="submit"] {
+              width: 100%;
+              margin-bottom: 15px;
+
+              &:last-child {
+                margin-bottom: 0;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  .shopping {
+    &__detail {
+      box-shadow: 0px 0px 10px 0px rgba(136, 136, 136, 0.1);
+      border-top: 1px solid $border-color-2;
+      &-title {
+        padding: 30px 20px;
+        border-bottom: 1px solid $border-color-2;
+        h6 {
+          font-size: $fs-18;
+          @extend %text-bold, %text-capitalize;
+          color: $alter-title-color;
+        }
+      }
+    }
+    &__wrapper {
+      padding: 30px 20px;
+      .shipping-address {
+        form {
+          @extend %flex, %justify-between;
+
+          .country-selection {
+            @extend %p-rel;
+            margin-bottom: 23px;
+            width: 100%;
+
+            select {
+              border: 1px solid $border-color-2;
+              padding: 19px;
+              -webkit-appearance: none;
+              -moz-appearance: none;
+              @extend %p-rel, %text-capitalize;
+              z-index: 1;
+              color: $pra-color;
+              font-size: $fs-16;
+
+              &::-webkit-scrollbar {
+                display: none;
+              }
+            }
+            i {
+              @extend %p-abs, %text-center;
+              width: 57px;
+              height: 57px;
+              line-height: 57px;
+              background-color: $select-bg-color;
+              top: 0;
+              right: 0;
+            }
+          }
+          input {
+            padding: 19px;
+            border: 1px solid $border-color-2;
+
+            &.state,
+            &.zip {
+              width: 100%;
+
+              @include breakpoint(sm) {
+                width: 49%;
+              }
+            }
+
+            &.state {
+              margin-bottom: 15px;
+              @include breakpoint(sm) {
+                margin-bottom: 0;
+              }
+            }
+          }
+          .comon-btn {
+            margin-top: 30px;
+          }
+        }
+      }
+      .cart {
+        &__total {
+          ul {
+            li {
+              @extend %flex, %justify-between, %ai-center, %text-capitalize;
+              border: 1px solid $border-color-2;
+              padding: 18px;
+              margin-bottom: 23px;
+              @include add-prefix(border-radius, 4px);
+            }
+          }
+        }
+      }
+    }
+  }
+}

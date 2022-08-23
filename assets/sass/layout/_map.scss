@@ -1,0 +1,122 @@
+.map {
+  &__iframe {
+    width: 100%;
+    height: 300px;
+
+    @include breakpoint(md) {
+      height: 600px;
+    }
+    iframe {
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  &__contact {
+    background-color: $theme-color;
+
+    .container {
+      @extend %p-rel;
+    }
+    &-wrapper {
+      margin-top: -33px;
+      @include breakpoint(lg) {
+        position: absolute;
+        left: 0;
+        bottom: 34px;
+        background-color: $white-color;
+        padding: 0 40px;
+      }
+
+      .row .col-12:nth-child(2) .map__contact-item {
+        @media (min-width: 576px) {
+          padding: 64px 10px;
+
+          @include breakpoint(md) {
+            padding: 46px 0px;
+          }
+        }
+        @media (min-width: 768px) {
+          padding: 45px 10px;
+
+          @include breakpoint(lg) {
+            padding: 35px 10px;
+          }
+          @include breakpoint(xl) {
+            padding: 43px 10px;
+          }
+        }
+      }
+    }
+    &-item {
+      margin-bottom: 30px;
+      padding: 43px 10px;
+      @extend%text-center;
+      background-color: $white-color;
+      @include add-prefix(border-radius, 5px);
+
+      @include breakpoint(lg) {
+        margin-bottom: 0px;
+        padding: 35px 0px;
+        text-align: left;
+      }
+      @include breakpoint(xl) {
+        padding: 43px 0px;
+      }
+    }
+    &-thumb {
+      margin-bottom: 20px;
+    }
+    &-title {
+      margin-bottom: 15px;
+      h6.office {
+        font-size: 16px;
+        @extend %text-regular;
+        margin-bottom: 5px;
+      }
+      h6 {
+        font-size: 18px;
+        color: $title-color;
+        @extend %text-bold, %text-capitalize;
+      }
+      h5 {
+        font-size: 20px;
+        color: $title-color;
+        @extend %text-bold;
+        line-height: 1.5;
+
+        @include breakpoint(sm) {
+          font-size: 21px;
+        }
+        @include breakpoint(md) {
+          font-size: 22px;
+        }
+        @include breakpoint(lg) {
+          font-size: 23px;
+        }
+        @include breakpoint(xl) {
+          font-size: 24px;
+        }
+      }
+      li {
+        font-size: 16px;
+        color: $pra-color;
+        @extend %text-regular;
+        line-height: 1.5;
+      }
+    }
+    &-content {
+      li a {
+        color: $pra-color;
+        @extend %text-regular;
+        line-height: 1.5;
+        &:focus {
+          color: $pra-color;
+        }
+        &:hover {
+          color: $theme-color;
+        }
+      }
+    }
+  }
+}
